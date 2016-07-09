@@ -36,7 +36,8 @@ module NewRelic::Sidekiq
 
         report_metric 'Workers/Working',      'Workers',  workers.size || 0
         report_metric 'Jobs/Count/Pending',   'Jobs',     stats.enqueued || 0
-        report_metric 'Jobs/Count/Processed', 'Jobs',     stats.processed || 0
+        report_metric 'Jobs/Totals/Processed','Jobs',     stats.processed || 0
+        report_metric 'Jobs/Totals/Dead',     'Jobs',     stats.dead_size || 0
         report_metric 'Jobs/Count/Failed',    'Jobs',     stats.failed || 0
         report_metric 'Jobs/Count/Scheduled', 'Jobs',     stats.scheduled_size || 0
         report_metric 'Jobs/Count/Retries',   'Jobs',     stats.retry_size || 0
